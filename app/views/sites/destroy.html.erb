@@ -7,7 +7,7 @@
   <%= render "subnets/list", subnets: @subnets, hide_actions: true %>
 <% end %>
 
-<%= button_to "Delete site", site_path(@site),
+<%= button_to "Delete site", :back,
   method: :delete,
   class: "govuk-button govuk-button--warning govuk-!-margin-right-1",
   data: {

@@ -15,7 +15,7 @@
     class: 'govuk-!-display-inline-block'
   }
 %>
-<%= link_to "Cancel", subnet_path(@reservation.subnet),
+<%= link_to "Cancel", :back,
   class: "govuk-button govuk-button--secondary",
   data: {
     module: "govuk-button"

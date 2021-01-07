@@ -37,3 +37,8 @@
     </dd>
   </div>
 </dl>
+
+<% if can?(:manage, @client_class) %>
+  <%= link_to "Edit client class", edit_client_class_path(@client_class), class: "govuk-button govuk-button--secondary" %>
+  <%= link_to "Delete client class", client_class_path(@client_class), class: "govuk-button govuk-button--warning", method: :delete %>
+<% end %>

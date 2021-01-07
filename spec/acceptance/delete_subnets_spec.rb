@@ -16,7 +16,10 @@ describe "delete subnets", type: :feature do
   it "delete a subnet" do
     visit "/sites/#{subnet.site.to_param}"
 
-    click_on "Delete"
+    within_table "List of subnets" do
+      byebug
+      click_on "Delete"
+    end
 
     expect(page).to have_content("Are you sure you want to delete this subnet?")
 

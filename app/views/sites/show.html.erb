@@ -12,9 +12,15 @@
   </div>
 </dl>
 
+<% if can?(:manage, @site) %>
+  <%= link_to "Edit site", edit_site_path(@site), class: "govuk-button govuk-button--secondary" %>
+  <%= link_to "Delete site", site_path(@site), class: "govuk-button govuk-button--warning", method: :delete %>
+<% end %>
+
+<h3 class="govuk-heading-m">Subnets</h2>
+
 <% if can? :create, Subnet %>
   <%= link_to "Create a new subnet", new_site_subnet_path(@site), class: "govuk-button" %>
 <% end %>
-
 
 <%= render "subnets/list", subnets: @subnets %>

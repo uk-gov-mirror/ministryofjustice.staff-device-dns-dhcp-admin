@@ -7,7 +7,7 @@
   <%= render "reservations/list", reservations: @subnet.reservations, hide_actions: true %>
 <% end %>
 
-<%= button_to "Delete subnet", subnet_path(@subnet),
+<%= button_to "Delete subnet", :back,
   method: :delete,
   class: "govuk-button govuk-button--warning govuk-!-margin-right-1",
   data: {
