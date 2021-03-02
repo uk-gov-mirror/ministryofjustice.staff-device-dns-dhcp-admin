@@ -1,5 +1,30 @@
-<%= render "layouts/form_errors", resource: @subnet %>
+<div class="govuk-grid-column-two-thirds">
+  <%= render "layouts/form_errors", resource: @subnet %>
+  <h2 class="govuk-heading-l">Create a new subnet</h2>
+  <%= render "subnets/form", subnet: @subnet %>
+</div>
+<div class="govuk-grid-column-one-third">
+  <div class="govuk-inset-text">
+    <h3 class="govuk-heading-m">Global Options</h3>
 
-<h2 class="govuk-heading-l">Create a new subnet</h2>
-
-<%= render "subnets/form", subnet: @subnet %>
+    <% if @global_option %>
+      <% presenter = present(@global_option) %>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <h4 class="govuk-heading-s">Domain name servers</h4>
+            <p><%= @global_option.domain_name_servers.join(",") %></p>
+        </div>
+        <div class="govuk-summary-list__row">
+          <h4 class="govuk-heading-s">Domain name</h4>
+          <p><%= @global_option.domain_name %></p>
+        </div>
+        <div class="govuk-summary-list__row">
+          <h4 class="govuk-heading-s">Valid lifetime</h4>
+          <p><%= presenter.display_valid_lifetime %></p>
+        </div>
+      </dl>
+    <% else %>
+      <p class="govuk-body">There are no global options configured.</p>
+    <% end %>
+  </div>
+</div>

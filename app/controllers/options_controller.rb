@@ -3,6 +3,7 @@ class OptionsController < ApplicationController
   before_action :set_option, only: [:edit, :update, :destroy]
 
   def new
+    @global_option = GlobalOption.first
     @option = @subnet.build_option
     authorize! :create, @option
   end

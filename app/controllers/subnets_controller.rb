@@ -3,6 +3,7 @@ class SubnetsController < ApplicationController
   before_action :set_subnet, only: [:show, :edit, :update, :destroy]
 
   def new
+    @global_option = GlobalOption.first
     @subnet = @site.subnets.build
     authorize! :create, @subnet
   end
